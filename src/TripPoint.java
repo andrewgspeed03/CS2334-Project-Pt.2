@@ -90,12 +90,12 @@ public class TripPoint {
         return dist;
     }
     /**
-     * 
+     *Calculates the average speed between two points in kilometers per hour.
+     * Order does not matter
      * @param a
      * @param b
+     * @see haversineDistance
      * @return avgSpeed
-     * Calculates the average speed between two points in kilometers per hour.
-     * Order does not matter
      */
     public static double avgSpeed(TripPoint a, TripPoint b){
         double distance = haversineDistance(a,b);
@@ -117,6 +117,7 @@ public class TripPoint {
     }
     /**
      * Computes and returns the total distance of the trip in kilometers.
+     * @see haversineDistance
      * @return total distance
      */
     public static double totalDistance(){
