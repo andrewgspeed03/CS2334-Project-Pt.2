@@ -137,6 +137,8 @@ public class TripPoint {
                 trip.add(new TripPoint(time, lat, lon));
                 raw = br.readLine().split(",");
             }
+            br.close();
+            fr.close();
         }
         catch (InputMismatchException e){
 
