@@ -16,12 +16,11 @@ public class TripPoint {
     private static ArrayList<TripPoint> trip;
 
     /**
-     * 
+     * Initilizes varibles of a new TripPoint object 
      * @param time
      * @param lat
      * @param lon
-     * Initilizes varibles of a new TripPoint object
-     */
+    */
     public TripPoint(int time, double lat, double lon){
         this.lat = lat;
         this.lon = lon;
@@ -31,33 +30,29 @@ public class TripPoint {
     //accessor methods
 
     /**
-     * 
-     * @return time
      * gets the time
+     * @return time
      */
     public int getTime(){
         return time;
     }
     /**
-     * 
-     * @return lat
      * gets Latitude
+     * @return lat
      */
     public double getLat(){
         return lat;
     }
     /**
-     * 
-     * @return lon
      * gets Longitude
+     * @return lon
      */
     public double getLon(){
         return lon;
     }
     /**
-     * 
-     * @return copy of trip
      * Makes a copy of the trips ArrayList to prevent mutation and returns it
+     * @return copy of trip
      */
     public static ArrayList<TripPoint> getTrip(){
         ArrayList<TripPoint> copy = new ArrayList<>(trip);
@@ -66,11 +61,10 @@ public class TripPoint {
 
     //Helper methods
     /**
-     * 
+     * Computes and return the Haversine distance between two points in kilometers.
      * @param a
      * @param b
      * @return distance
-     * Computes and return the Haversine distance between two points in kilometers.
      */
     public static double haversineDistance(TripPoint a, TripPoint b){
         final double EARTHR = 6372.8; //Earth's radius in Km
@@ -98,5 +92,12 @@ public class TripPoint {
         double time = Math.abs(b.getTime() - a.getTime()) / 3600.0; // Convert seconds to hours
         double speed = distance / time;
         return speed;
+    }
+    /**
+     * Calculates and returns the total trip time in hours
+     * @return total time
+     */
+    public static double totalTime(){
+        double timeHrs = getTime() / 3600.0;
     }
 }
