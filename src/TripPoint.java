@@ -108,13 +108,19 @@ public class TripPoint {
      */
     public static double totalTime(){
         double tot = 0;
-        for(TripPoint a : trip){
+        for(TripPoint a : trip)
             tot+= a.getTime();
-        }
         double totHrs = tot/60;
         return totHrs;
     }
+    /**
+     * Computes and returns the total distance of the trip in kilometers.
+     * @return total distance
+     */
     public static double totalDistance(){
-
+        double tot = 0;
+        for(int i = 1; i < trip.size(); i++)
+            tot+= haversineDistance(trip.get(i-1),trip.get(i));
+        return tot;
     }
 }
