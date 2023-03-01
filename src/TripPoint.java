@@ -71,17 +71,23 @@ public class TripPoint {
      * @return distance
      */
     public static double haversineDistance(TripPoint a, TripPoint b){
-        final double EARTHR = 6372.8; //Earth's radius in Km
-        double dLat = Math.toRadians(b.getLat() - a.getLat()); // change in lat
-        double dLon = Math.toRadians(b.getLon() - a.getLon()); // change in lon
+        final int R = 6371; // Earth's radius in km
+        double lata = Math.toRadians(a.getLat());
+        double latb = Math.toRadians(b.getLat());
+        double lona = Math.toRadians(a.getLon());
+        double lonb = Math.toRadians(b.getLon());
 
-        //Haversine Formula
-        double circle = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-               Math.cos(Math.toRadians(a.getLat())) * Math.cos(Math.toRadians(b.getLat())) *
-               Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        double angle = 2 * Math.asin(Math.sqrt(circle));
-        double distance = EARTHR * angle;
-        return distance;
+        double dLat = latb - lata;
+        double dLon = lonb - lona;
+
+        //Haversine formula
+        double aVal = Math.sin(dLat / 2) * Math.sin(dLat / 2) + 
+                   Math.cos(lata) * Math.cos(latb) * 
+                   Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        double cVal = 2 * Math.atan2(Math.sqrt(aVal), Math.sqrt(1 - aVal));
+        double dist = R * cVal;
+        
+        return dist;
     }
     /**
      * 
