@@ -22,8 +22,11 @@ public class TripPoint {
     /**
      * Initializes variables of a new TripPoint object 
      * @param time
+     * time interval of the point
      * @param lat
+     * lattitude of the point
      * @param lon
+     * longitude of the point
     */
     public TripPoint(int time, double lat, double lon){
         this.lat = lat;
@@ -67,7 +70,9 @@ public class TripPoint {
     /**
      * Computes and return the Haversine distance between two points in kilometers.
      * @param a
+     * The previous point
      * @param b
+     * point that was travel to
      * @return distance
      */
     public static double haversineDistance(TripPoint a, TripPoint b){
@@ -93,7 +98,9 @@ public class TripPoint {
      *Calculates the average speed between two points in kilometers per hour.
      * Order does not matter
      * @param a
+     * first Trippoint
      * @param b
+     * second Trippoint
      * @see haversineDistance
      * @return avgSpeed
      */
@@ -130,6 +137,7 @@ public class TripPoint {
      * Initialize each line of data in the file as a TripPoint object
      * adding them to the trip ArrayList 
      * @param filename
+     * name of CSV file
      * @throws IOException
      */
     public static void readFile(String filename) throws IOException{
