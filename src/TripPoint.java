@@ -16,7 +16,7 @@ public class TripPoint {
     private double lat;
     private double lon;
     private int time;
-    private static ArrayList<TripPoint> trip;
+    private static ArrayList<TripPoint> trip = new ArrayList<TripPoint>();
 
     //constructor method
     /**
@@ -129,13 +129,13 @@ public class TripPoint {
             FileReader fr = new FileReader(filename);
             BufferedReader br = new BufferedReader(fr);
             br.readLine();
-            String[] raw = br.readLine().split(",");
-            while(raw != null){
-                int time = Integer.parseInt(raw[0]);
-                double lat = Double.parseDouble(raw[1]);
-                double lon = Double.parseDouble(raw[2]);
+            String raw;
+            while((raw = br.readLine()) != null){
+                String[] data = raw.split(",");
+                int time = Integer.parseInt(data[0]);
+                double lat = Double.parseDouble(data[1]);
+                double lon = Double.parseDouble(data[2]);
                 trip.add(new TripPoint(time, lat, lon));
-                raw = br.readLine().split(",");
             }
             br.close();
             fr.close();
