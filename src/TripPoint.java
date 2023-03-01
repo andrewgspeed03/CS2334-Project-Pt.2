@@ -89,7 +89,7 @@ public class TripPoint {
      */
     public static double avgSpeed(TripPoint a, TripPoint b){
         double distance = haversineDistance(a,b);
-        double time = Math.abs(b.getTime() - a.getTime()) / 3600.0; // Convert seconds to hours
+        double time = Math.abs(b.getTime() - a.getTime()) / 60.0; // Convert minutes to hours
         double speed = distance / time;
         return speed;
     }
@@ -98,6 +98,7 @@ public class TripPoint {
      * @return total time
      */
     public static double totalTime(){
-        double timeHrs = getTime() / 3600.0;
+        double timeHrs = time / 60.0;
+        return timeHrs;
     }
 }
