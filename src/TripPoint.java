@@ -15,6 +15,15 @@ public class TripPoint {
     private int time;
     private static ArrayList<TripPoint> trip;
 
+    //constructor methods
+    /**
+     * Default constructor
+     */
+    public TripPoint(){
+        lat = 0;
+        lon = 0;
+        time = 0;
+    }
     /**
      * Initilizes varibles of a new TripPoint object 
      * @param time
@@ -98,7 +107,14 @@ public class TripPoint {
      * @return total time
      */
     public static double totalTime(){
-        double timeHrs = time / 60.0;
-        return timeHrs;
+        double tot = 0;
+        for(TripPoint a : trip){
+            tot+= a.getTime();
+        }
+        double totHrs = tot/60;
+        return totHrs;
+    }
+    public static double totalDistance(){
+
     }
 }
