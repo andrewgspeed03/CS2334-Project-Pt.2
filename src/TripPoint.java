@@ -116,9 +116,8 @@ public class TripPoint {
      */
     public static double totalTime(){
         double tot = 0;
-        for(TripPoint a: trip)
-            tot+= 5; // adds to tot for ever 5 min interval
-        tot-= 5; // removes starting point time
+        for(int i = 1; i < trip.size(); i++)
+            tot+=5;
         double totHrs = tot / 60.0;
         return totHrs;
     }
