@@ -133,7 +133,7 @@ public class TripPoint {
             while(raw != null){
                 int time = Integer.parseInt(raw[0]);
                 double lat = Double.parseDouble(raw[1]);
-                double lon = Double.parseDouble(raw[3]);
+                double lon = Double.parseDouble(raw[2]);
                 trip.add(new TripPoint(time, lat, lon));
                 raw = br.readLine().split(",");
             }
