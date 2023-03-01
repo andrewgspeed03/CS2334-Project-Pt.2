@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
@@ -19,15 +18,7 @@ public class TripPoint {
     private int time;
     private static ArrayList<TripPoint> trip;
 
-    //constructor methods
-    /**
-     * Default constructor
-     */
-    public TripPoint(){
-        lat = 0;
-        lon = 0;
-        time = 0;
-    }
+    //constructor method
     /**
      * Initilizes varibles of a new TripPoint object 
      * @param time
