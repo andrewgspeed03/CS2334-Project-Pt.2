@@ -86,7 +86,7 @@ public class TripPoint {
                    Math.sin(dLon / 2) * Math.sin(dLon / 2);
         double cVal = 2 * Math.atan2(Math.sqrt(aVal), Math.sqrt(1 - aVal));
         double dist = R * cVal;
-        
+
         return dist;
     }
     /**
@@ -104,14 +104,15 @@ public class TripPoint {
         return speed;
     }
     /**
-     * Calculates and returns the total trip time in hours
+     * Calculates and returns the total trip time in hours 
      * @return total time
      */
     public static double totalTime(){
         double tot = 0;
-        for(TripPoint a : trip)
-            tot+= a.getTime();
-        double totHrs = tot/60;
+        for(TripPoint a: trip)
+            tot+= 5; // adds to tot for ever 5 min interval
+        tot-= 5; // removes starting point time
+        double totHrs = tot / 60.0;
         return totHrs;
     }
     /**
