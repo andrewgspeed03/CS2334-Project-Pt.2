@@ -64,5 +64,26 @@ public class TripPoint {
         return copy;
     }
 
+    //Helper methods
+    /**
+     * 
+     * @param a
+     * @param b
+     * @return distance
+     * Computes and return the Haversine distance between two points in kilometers.
+     */
+    public static double haversineDistance(TripPoint a, TripPoint b){
+        final double EARTHR = 6372.8; //Earth's radius in Km
+        double dLat = Math.toRadians(b.getLat() - a.getLat()); // change in lat
+        double dLon = Math.toRadians(b.getLon() - a.getLon()); // change in lon
+
+        //Haversine Formula
+        double circle = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+               Math.cos(Math.toRadians(a.getLat())) * Math.cos(Math.toRadians(b.getLat())) *
+               Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        double angle = 2 * Math.asin(Math.sqrt(circle));
+        double distance = EARTHR * angle;
+        return distance;
+    }
 
 }
