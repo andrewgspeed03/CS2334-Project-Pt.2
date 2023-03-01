@@ -85,5 +85,18 @@ public class TripPoint {
         double distance = EARTHR * angle;
         return distance;
     }
-
+    /**
+     * 
+     * @param a
+     * @param b
+     * @return avgSpeed
+     * Calculates the average speed between two points in kilometers per hour.
+     * Order does not matter
+     */
+    public static double avgSpeed(TripPoint a, TripPoint b){
+        double distance = haversineDistance(a,b);
+        double time = Math.abs(b.getTime() - a.getTime()) / 3600.0; // Convert seconds to hours
+        double speed = distance / time;
+        return speed;
+    }
 }
