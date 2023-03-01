@@ -20,7 +20,7 @@ public class TripPoint {
 
     //constructor method
     /**
-     * Initilizes varibles of a new TripPoint object 
+     * Initializes variables of a new TripPoint object 
      * @param time
      * @param lat
      * @param lon
@@ -31,7 +31,7 @@ public class TripPoint {
         this.time = time;
     }
 
-    //accessor methods
+    //assessor methods
 
     /**
      * gets the time
