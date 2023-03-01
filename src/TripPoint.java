@@ -1,5 +1,9 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 
 /**
  * 
@@ -122,5 +126,29 @@ public class TripPoint {
         for(int i = 1; i < trip.size(); i++)
             tot+= haversineDistance(trip.get(i-1),trip.get(i));
         return tot;
+    }
+    /**
+     * Initialize each line of data in the file as a TripPoint object
+     * adding them to the trip ArrayList 
+     * @param filename
+     * @throws IOException
+     */
+    public static void readFile(String filename) throws IOException{
+        try{
+            FileReader fr = new FileReader(filename);
+            BufferedReader br = new BufferedReader(fr);
+            br.readLine();
+            String[] raw = br.readLine().split(",");
+            while(raw != null){
+                int time = Integer.parseInt(raw[0]);
+                double lat = Double.parseDouble(raw[1]);
+                double lon = Double.parseDouble(raw[3]);
+                trip.add(new TripPoint(time, lat, lon));
+                raw = br.readLine().split(",");
+            }
+        }
+        catch (InputMismatchException e){
+
+        }
     }
 }
