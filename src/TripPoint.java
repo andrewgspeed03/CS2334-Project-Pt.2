@@ -1,8 +1,3 @@
-/**
- * This class is used to create TripPoint objects that contain the time, latitude, and longitude of a
- * point. It also contains methods to calculate the distance between two points, the average speed
- * between two points, the total time of the trip, and the total distance of the trip
- */
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,7 +5,9 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 /**
- * 
+ * This class is used to create TripPoint objects that contain the time interval, latitude, and longitude of a
+ * point. It also contains methods to calculate the distance between two points, the average speed
+ * between two points, the total time of the trip, and the total distance of the trip
  * @author good0161
  * @version 1.0.0
  * 
